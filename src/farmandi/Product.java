@@ -1,22 +1,19 @@
 package farmandi;
+
 import javax.swing.*;
 import java.util.Vector;
 import java.awt.event.*;
 import javax.swing.table.DefaultTableModel;
 
-public class Product extends JFrame implements ActionListener
-{
+public class Product extends JFrame implements ActionListener {
     private JFrame productFrame;
     private String fphoneno;
-    private JTable productTable;
-    private DefaultTableModel tableModel;
-    private JButton backButton;
 
     public Product(String fphoneno) {
         productFrame = new JFrame("Product List");
         productFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         productFrame.setLayout(null);
-        this.fphoneno= fphoneno;
+        this.fphoneno = fphoneno;
 
         Vector<Vector<String>> rowData = new Vector<>();
         Vector<String> columnNames = new Vector<>();
@@ -60,37 +57,34 @@ public class Product extends JFrame implements ActionListener
         product6.add("150 days");
         rowData.add(product6);
 
-        tableModel = new DefaultTableModel(rowData, columnNames);
-        productTable = new JTable(tableModel);
+        DefaultTableModel tableModel = new DefaultTableModel(rowData, columnNames);
+        JTable productTable = new JTable(tableModel);
         productTable.setAutoCreateRowSorter(true);
 
-        productTable.setBounds(10, 10, 480, 200);
+        JScrollPane scrollPane = new JScrollPane(productTable);
+        scrollPane.setBounds(10, 10, 480, 200);
 
-        productFrame.add(productTable);
+        productFrame.add(scrollPane);
 
-        backButton = new JButton("Back");
+        JButton backButton = new JButton("Back");
         backButton.setBounds(10, 220, 100, 30);
         productFrame.add(backButton);
-		backButton.addActionListener(this);
+        backButton.addActionListener(this);
 
         productFrame.setSize(500, 300);
         productFrame.setLocationRelativeTo(null);
         productFrame.setVisible(true);
     }
-	public void actionPerformed(ActionEvent e)
-	{
-		if(e.getActionCommand().equals("Back"))
-		{
-			productFrame.setVisible(false);
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Back")) {
+            productFrame.setVisible(false);
             String fphoneno = this.fphoneno;
-				new Fhomepage(fphoneno);
-		}
-		else
-		{
-			
-		}
-		
-	}
+            new Fhomepage(fphoneno);
+        } else {
+        }
+    }
+
     public void main(String[] args) {
         String fphoneno = this.fphoneno;
         new Product(fphoneno);

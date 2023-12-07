@@ -1,4 +1,5 @@
 package farmandi;
+import javax.swing.border.LineBorder;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -7,12 +8,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JComboBox;
 
 class summary extends JFrame implements ActionListener {
 	JFrame f4 = new JFrame("summary");
 	private static String fphoneno;
-	JButton remb, remba, buy;
+	JButton remb,  buy;
 	JComboBox<String> cartList;
 	JPanel fpanel, productPanel;
 	JTextArea productNameArea, quantityArea, listedOnArea, lastDateArea, fpriceArea, soldArea, unsoldArea;
@@ -26,8 +26,13 @@ class summary extends JFrame implements ActionListener {
 
 		this.fphoneno = fphoneno;
 
+		ImageIcon image13 = new ImageIcon("C:\\farmandi\\src\\IMAGES\\LOF.JPG");
+		JLabel calo = new JLabel(image13);
+		calo.setBounds(6, 6, 38, 38);
+		fpanel.add(calo, BorderLayout.CENTER);
+
 		JButton logout = new JButton("LogOut");
-		logout.setBounds(710, 2, 75, 30);
+		logout.setBounds(690, 2, 100, 30);
 		logout.setBackground(Color.RED);
 		logout.setForeground(Color.WHITE);
 		fpanel.add(logout);
@@ -41,26 +46,27 @@ class summary extends JFrame implements ActionListener {
 
 		remb = new JButton("Remove Item");
 		remb.setBounds(170, 375, 110, 30);
+		remb.setBackground(new Color(255, 165, 47));
 		remb.addActionListener(this);
 
-		remba = new JButton("Remove All Item");
-		remba.setBounds(290, 375, 130, 30);
-		remba.addActionListener(this);
+
 
 		buy = new JButton("ADD A PRODUCT");
 		buy.setBounds(430, 375, 150, 30);
+		buy.setBackground(new Color(255, 165, 47));
 		buy.addActionListener(this);
 
 		cartList = new JComboBox<>();
 		cartList.setBounds(60, 125, 90, 25);
+		cartList.setBackground(new Color(255, 165, 47));
 		populateCartList(fphoneno);
 
 		productPanel = new JPanel();
 		productPanel.setLayout(null);
 		productPanel.setBounds(60, 155, 635, 200);
-		productPanel.setBackground(new Color(230, 221, 221));
+		productPanel.setBackground(new Color(255,255,204));
 
-		JLabel productLabel = new JLabel("Prod. Name");
+		JLabel productLabel = new JLabel("Product Name");
 		productLabel.setFont(new Font("Osword", Font.BOLD, 15));
 		productLabel.setForeground(Color.BLACK);
 
@@ -80,79 +86,57 @@ class summary extends JFrame implements ActionListener {
 		fprice.setFont(new Font("Osword", Font.BOLD, 15));
 		fprice.setForeground(Color.BLACK);
 
-		JLabel sold = new JLabel("Sold");
-		sold.setFont(new Font("Osword", Font.BOLD, 15));
-		sold.setForeground(Color.BLACK);
 
-		JLabel unsold = new JLabel("Unsold");
-		unsold.setFont(new Font("Osword", Font.BOLD, 15));
-		unsold.setForeground(Color.BLACK);
 
-		productLabel.setBounds(10, 10, 100, 20);
-		quantityLabel.setBounds(10, 40, 100, 20);
-		listedOnLabel.setBounds(10, 70, 100, 20);
-		lastDateLabel.setBounds(10, 100, 100, 20);
-		fprice.setBounds(10, 130, 100, 20);
-		sold.setBounds(10, 160, 100, 20);
-		unsold.setBounds(230, 160, 100, 20);
+		productLabel.setBounds(20, 20, 120, 20);
+		quantityLabel.setBounds(20, 55, 120, 20);
+		listedOnLabel.setBounds(20, 90, 120, 20);
+		lastDateLabel.setBounds(20, 125, 120, 20);
+		fprice.setBounds(20, 160, 120, 20);
 
 		productPanel.add(productLabel);
 		productPanel.add(quantityLabel);
 		productPanel.add(listedOnLabel);
 		productPanel.add(lastDateLabel);
 		productPanel.add(fprice);
-		//productPanel.add(sold);
-		//productPanel.add(unsold);
 
 		productNameArea = new JTextArea();
 		productNameArea.setEditable(false);
-		productNameArea.setEnabled(false);
+		productNameArea.setEnabled(true);
 		productNameArea.setForeground(Color.BLACK);
+		productNameArea.setFont(new Font("Arial", Font.PLAIN, 14));
+		productNameArea.setBorder(new LineBorder(Color.BLACK));
 
 		quantityArea = new JTextArea();
 		quantityArea.setEditable(false);
-		quantityArea.setEnabled(false);
 		quantityArea.setForeground(Color.BLACK);
+		quantityArea.setBorder(new LineBorder(Color.BLACK));
 
 		listedOnArea = new JTextArea();
 		listedOnArea.setEditable(false);
-		listedOnArea.setEnabled(false);
 		listedOnArea.setForeground(Color.BLACK);
+		listedOnArea.setBorder(new LineBorder(Color.BLACK));
 
 		lastDateArea = new JTextArea();
 		lastDateArea.setEditable(false);
-		lastDateArea.setEnabled(false);
 		lastDateArea.setForeground(Color.BLACK);
+		lastDateArea.setBorder(new LineBorder(Color.BLACK));
 
 		fpriceArea = new JTextArea();
 		fpriceArea.setEditable(false);
-		fpriceArea.setEnabled(false);
 		fpriceArea.setForeground(Color.BLACK);
+		fpriceArea.setBorder(new LineBorder(Color.BLACK));
 
-		soldArea = new JTextArea();
-		soldArea.setEditable(false);
-		soldArea.setEnabled(false);
-		soldArea.setForeground(Color.BLACK);
-
-		unsoldArea = new JTextArea();
-		unsoldArea.setEditable(false);
-		unsoldArea.setEnabled(false);
-
-		productNameArea.setBounds(120, 10, 200, 20);
-		quantityArea.setBounds(120, 40, 200, 20);
-		listedOnArea.setBounds(120, 70, 200, 20);
-		fpriceArea.setBounds(120, 130, 200, 20);
-		lastDateArea.setBounds(120, 100, 200, 20);
-		//soldArea.setBounds(120, 160, 100, 20);
-		//unsoldArea.setBounds(290, 160, 100, 20);
-
+		productNameArea.setBounds(140, 20, 200, 20);
+		quantityArea.setBounds(140, 55, 200, 20);
+		listedOnArea.setBounds(140, 90, 200, 20);
+		fpriceArea.setBounds(140, 160, 200, 20);
+		lastDateArea.setBounds(140, 125, 200, 20);
 		productPanel.add(productNameArea);
 		productPanel.add(quantityArea);
 		productPanel.add(listedOnArea);
 		productPanel.add(lastDateArea);
 		productPanel.add(fpriceArea);
-		//productPanel.add(soldArea);
-		//productPanel.add(unsoldArea);
 
 		JLabel sum = new JLabel("SUMMARY");
 		sum.setBounds(10, 50, 300, 50);
@@ -169,7 +153,7 @@ class summary extends JFrame implements ActionListener {
 		cartList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String selectedProductName = cartList.getSelectedItem().toString();
-				populateTextArea(selectedProductName); 
+				populateTextArea(selectedProductName);
 				if (selectedProductName != null) {
 					populateCartList(fphoneno);
 				}
@@ -177,11 +161,10 @@ class summary extends JFrame implements ActionListener {
 		});
 
 		f4.add(remb);
-		f4.add(remba);
 		f4.add(buy);
 		f4.add(cartList);
 		f4.add(productPanel);
-
+		f4.getContentPane().setBackground(new Color(204, 255, 153));
 		f4.setLocation(300, 125);
 		f4.setLayout(null);
 		f4.setVisible(true);
@@ -238,6 +221,7 @@ class summary extends JFrame implements ActionListener {
 				listedOnArea.setText(listedOn);
 				lastDateArea.setText(lastDate);
 				fpriceArea.setText(quantityInStockTimesFinalPrice);
+				productNameArea.setText(selectedProductName);
 			}
 
 			resultSet.close();

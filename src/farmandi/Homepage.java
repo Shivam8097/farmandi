@@ -28,7 +28,7 @@ public class Homepage extends JFrame implements ActionListener
 		mpanel.setBackground(new Color(204, 255,153));
 		f2.add(mpanel, BorderLayout.CENTER);
 
-		JLabel wel = new JLabel("Welcome");
+		JLabel wel = new JLabel("Welcome Customer!");
 		wel.setFont(new Font ("Osword",Font.BOLD,28));
 		wel.setForeground(new Color(255,128,0));
 		wel.setBounds(15,15,300,80);
@@ -73,13 +73,15 @@ public class Homepage extends JFrame implements ActionListener
 		fpanel.add(label7);
 
 
-		JButton cart = new JButton("Cart");
-		cart.setBounds(575,8,70,30);
-		cart.setBackground (new Color(255,165,47));
+		JButton cart = new JButton(" ");
+		cart.setBounds(650,8,30,30);
+		cart.setBackground(new Color(255, 165, 47));
 		cart.setForeground(Color.BLACK);
 		fpanel.add(cart);
 		cart.addActionListener(this);
 		cart.setToolTipText("cart");
+		cart.setOpaque(false);
+		cart.setFocusPainted(false);
 
 		JButton logout = new JButton("LogOut");
 		logout.setBounds(700,8,85,30);
@@ -106,33 +108,33 @@ public class Homepage extends JFrame implements ActionListener
 		l21.setBounds(700,500,100,100);
 
 		JButton wheat= new JButton("Wheat");
-		wheat.setBackground (Color.RED);
-		wheat.setForeground(Color.WHITE);
+		wheat.setBackground (new Color(181,250,152));
+		wheat.setForeground(Color.BLACK);
 		dpanel.add(wheat,BorderLayout.NORTH);
 
 		JButton potato = new JButton("Potato");
-		potato.setBackground (Color.RED);
-		potato.setForeground(Color.WHITE);
+		potato.setBackground (new Color(181,250,152));
+		potato.setForeground(Color.BLACK);
 		dpanel.add(potato,BorderLayout.NORTH);
 
 		JButton garlic= new JButton("Garlic");
-		garlic.setBackground (Color.RED);
-		garlic.setForeground(Color.WHITE);
+		garlic.setBackground (new Color(181,250,152));
+		garlic.setForeground(Color.BLACK);
 		dpanel.add(garlic,BorderLayout.NORTH);
 
 		JButton mango = new JButton("Mango");
-		mango.setBackground (Color.RED);
-		mango.setForeground(Color.WHITE);
+		mango.setBackground (new Color(181,250,152));
+		mango.setForeground(Color.BLACK);
 		dpanel.add(mango,BorderLayout.NORTH);
 
 		JButton onion = new JButton("Onion");
-		onion.setBackground (Color.RED);
-		onion.setForeground(Color.WHITE);
+		onion.setBackground (new Color(181,250,152));
+		onion.setForeground(Color.BLACK);
 		dpanel.add(onion,BorderLayout.NORTH);
 
 		JButton orange = new JButton("Orange");
-		orange.setBackground (Color.RED);
-		orange.setForeground(Color.WHITE);
+		orange.setBackground (new Color(181,250,152));
+		orange.setForeground(Color.BLACK);
 		dpanel.add(orange,BorderLayout.NORTH);
 
 		wheat.setBounds(40,110,100,30);
@@ -173,25 +175,31 @@ public class Homepage extends JFrame implements ActionListener
 	}
 	public void actionPerformed (ActionEvent e)
 	{
-		if(e.getActionCommand().equals("LogOut"))
-		{
-			f2.setVisible(false);
-			new farmandi.loginPage();
-		}
-		else if(e.getActionCommand().equals("Wheat") ||
-				e.getActionCommand().equals("Onion") ||
-				e.getActionCommand().equals("Garlic") ||
-				e.getActionCommand().equals("Mango") ||
-				e.getActionCommand().equals("Orange") ||
-				e.getActionCommand().equals("Potato")) {
-			f2.setVisible(false);
-			new farmandi.searchpage(cphoneno, e.getActionCommand());
-		}
-		else if(e.getActionCommand().equals("Cart"))
-		{
-			f2.setVisible(false);
-			new farmandi.cart(cphoneno);
-		}
+		if (e.getActionCommand().equals("LogOut")) {
+		f2.setVisible(false);
+		new farmandi.loginPage();
+	} else if (e.getActionCommand().equals("Mango")) {
+		f2.setVisible(false);
+		new farmandi.searchpage(cphoneno, 1);
+	} else if (e.getActionCommand().equals("Orange")) {
+		f2.setVisible(false);
+		new farmandi.searchpage(cphoneno, 2);
+	} else if (e.getActionCommand().equals("Onion")) {
+		f2.setVisible(false);
+		new farmandi.searchpage(cphoneno, 3);
+	} else if (e.getActionCommand().equals("Potato")) {
+		f2.setVisible(false);
+		new farmandi.searchpage(cphoneno, 4);
+	} else if (e.getActionCommand().equals("Wheat")) {
+		f2.setVisible(false);
+		new farmandi.searchpage(cphoneno, 5);
+	} else if (e.getActionCommand().equals("Garlic")) {
+		f2.setVisible(false);
+		new farmandi.searchpage(cphoneno, 6);
+	} else if (e.getActionCommand().equals(" ")) {
+		f2.setVisible(false);
+		new farmandi.cart(cphoneno);
+	}
 	}
 
 	public  void main(String[] args)

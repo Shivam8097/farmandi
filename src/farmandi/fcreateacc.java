@@ -23,7 +23,7 @@ public class fcreateacc extends JFrame implements ActionListener
     fcreateacc()
     {
         f3 = new JFrame("Account");
-        ImageIcon image8 = new ImageIcon("C:\\farmandi\\src\\IMAGES\\farmer.jpg");
+        ImageIcon image8 = new ImageIcon("C:\\farmandi\\src\\IMAGES\\farmergr.jpg");
        JLabel label8 = new JLabel(image8);
                label8.setBounds(475, 50, 250, 330);
                f3.add(label8);
@@ -116,7 +116,7 @@ public class fcreateacc extends JFrame implements ActionListener
         f3.add(last);
 
         addt = new JTextArea();
-        addt.setBounds(250,200,350,45);
+        addt.setBounds(250,200,150,45);
         addt.setBackground (new Color(225,255,255));
         f3.add(addt);
 
@@ -167,7 +167,7 @@ public class fcreateacc extends JFrame implements ActionListener
         //f3.add(log);
 
         f3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f3.getContentPane().setBackground(new Color(192,192,192));
+        f3.getContentPane().setBackground(new Color(245,245,245));
         f3.setLocation(300,125);
         f3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f3.setSize(800,550);

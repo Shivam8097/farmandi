@@ -27,11 +27,12 @@ public class createacc extends JFrame implements ActionListener
 		f3.getContentPane().setBackground(new Color(50, 205, 50));
 
 
-		ImageIcon image7 = new ImageIcon("C:\\farmandi\\src\\IMAGES\\customerphotor.jpg");
+		/*ImageIcon image7 = new ImageIcon("C:\\farmandi\\src\\IMAGES\\customerphotor.jpg");
        JLabel label7 = new JLabel(image7);
                label7.setBounds(475, 50, 250, 330);
-               f3.add(label7);
-                
+               f3.add(label7);*/
+
+
         
 		JLabel l21 = new JLabel("FARMANDI");
         l21.setBounds(5, 5, 250, 30);
@@ -121,7 +122,7 @@ public class createacc extends JFrame implements ActionListener
 		f3.add(last);
 		
 		addt = new JTextArea();
-		addt.setBounds(250,200,350,45);
+		addt.setBounds(250,200,150,45);
 		addt.setBackground (new Color(225,255,255));
 		f3.add(addt);
 		
@@ -170,9 +171,22 @@ public class createacc extends JFrame implements ActionListener
 		JLabel log = new JLabel(logox);
 		log.setBounds(0,0,800,550 );
 		f3.add(log);
+                
+                		/*ImageIcon image11 = new ImageIcon("C:\\farmandi\\src\\IMAGES\\cusr.jpg");
+		JLabel label11 = new JLabel(image11);
+		label11.setBounds(0, 0, 800,550);
+		f3.add(label11);*/
+
+                ImageIcon image11 = new ImageIcon("C:\\farmandi\\src\\IMAGES\\cusrr.jpg");
+		JLabel label11 = new JLabel(image11);
+		label11.setBounds(445, 130, 342, 220);
+		f3.add(label11);
+                
+                
+                
 		
 		f3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f3.getContentPane().setBackground(new Color(192,192,192));
+		f3.getContentPane().setBackground(new Color(255,255,255));
 		f3.setLocation(300,125);
         f3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f3.setSize(800,550);

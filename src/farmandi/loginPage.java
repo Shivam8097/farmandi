@@ -11,7 +11,7 @@ import java.sql.SQLException;
 class loginPage extends JFrame implements ActionListener
 {
 	JFrame f1=new JFrame("Framandi");
-	JLabel l11=new JLabel("LOGIN ID");
+	JLabel l11=new JLabel("PHONE NO.");
 	JLabel l12=new JLabel("PASSWORD");
 	
 	private JTextField t11=new JTextField();
